@@ -7,6 +7,7 @@ import SearchFilter from "@/components/SearchFilter";
 import BotonAtras from "@/components/buttons/BotonAtras";
 import BotonAdelante from "@/components/buttons/BotonAdelante";
 import Character from "@/components/Character";
+
 // import "../styles/CharacterList.scss"
 
 
@@ -49,7 +50,7 @@ function CharacterList() {
   return (
     <div>
       <h1 className="h1">Rick and Morty</h1>
-      {/* <Divider
+      <Divider
         style={{
           borderColor: "#2453eb",
         }}
@@ -65,10 +66,10 @@ function CharacterList() {
         setFilterGender={setFilterGender}
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
-      /> */}
-      {/* <BotonAdelante page={page} setPage={setPage} maxPage={42} /> */}
+      />
+      <BotonAdelante page={page} setPage={setPage} maxPage={42} />
       <p></p>
-      {/* <BotonAtras page={page} setPage={setPage} /> */}
+      <BotonAtras page={page} setPage={setPage} />
       <div className="container">
         {characters.map((character: any) => {
           return (
@@ -80,8 +81,8 @@ function CharacterList() {
           );
         })}
       </div>
-      {/* <BotonAtras page={page} setPage={setPage} />
-      <BotonAdelante page={page} setPage={setPage} /> */}
+      <BotonAtras page={page} setPage={setPage} />
+      <BotonAdelante page={page} setPage={setPage} />
     </div>
   );
 }
