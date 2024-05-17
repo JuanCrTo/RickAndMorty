@@ -7,6 +7,7 @@ import SearchFilter from "@/components/SearchFilter";
 import BotonAtras from "@/components/buttons/BotonAtras";
 import BotonAdelante from "@/components/buttons/BotonAdelante";
 import Character from "@/components/Character";
+import BotonCharts from "@/components/buttons/BotonCharts";
 
 // import "../styles/CharacterList.scss"
 
@@ -55,6 +56,9 @@ function CharacterList() {
           borderColor: "#2453eb",
         }}
       ></Divider>
+      <Link href={`/charts`}>
+        <BotonCharts />
+      </Link>
       <SearchFilter
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
