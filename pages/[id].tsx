@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import BotonDetail from "@/components/buttons/BotonDetail";
+import BotonMain from "@/components/buttons/BotonMain";
 import Detail from "@/components/Detail";
 import { rmApi } from "./api/api";
 // import "../styles/CharacterList.scss"
@@ -36,7 +36,7 @@ export default function CharacterDetails({ character }: any) {
   return (
     <div>
       <Link href={`/`}>
-        <BotonDetail />
+        <BotonMain />
       </Link>
       <div className="character-details-container">
         <div className="character-detail">

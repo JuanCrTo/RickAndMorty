@@ -23,14 +23,39 @@ const BarChartComponent = () => {
       {
         label: 'Episodios',
         data: characters.map((character) => character.episode.length),
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'blue',
+        borderColor: 'black',
         borderWidth: 1,
       },
+      {
+        label: 'IQ',
+        data: [100, 50, 60, 70, 30, 55, 65, 85, 60, 65, 90, 40, 25, 50, 85, 55, 60, 50, 80, 20],
+        backgroundColor: 'red',
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: 5,
+        borderSkipped: false,
+      }
     ],
   };
 
-  return <Bar data={chartData} />;
+  const options = {
+    responsive: true,
+    // maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          maxRotation: 90, // Rotar las etiquetas del eje X para evitar superposiciones
+          minRotation: 90,
+        },
+      },
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
+  return <Bar data={chartData} options={options}/>;
 };
 
 export default BarChartComponent;

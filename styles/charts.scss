@@ -1,0 +1,21 @@
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 150px;
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 400px;
+    margin: 20px; // Margen para separar los gráficos
+    background-color: #ffffff; // Fondo blanco para los contenedores
+    box-shadow: 0 2px 40px rgba(20, 51, 227, 0.651); // Sombra para los contenedores
+    padding: 20px;
+  }
+}
+
+p {
+  margin: 40px;
+}

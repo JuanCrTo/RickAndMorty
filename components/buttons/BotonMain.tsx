@@ -1,12 +1,12 @@
 import React from "react";
 import { Button } from "antd";
 
-function BotonDetail() {
+function BotonMain() {
   return (
     <div>
       <Button
         className="botonPaginas"
-        style={{ backgroundColor: "rgb(0, 0, 0)", color: "blue" }}
+        style={{ backgroundColor: "#ffffff", color: "0 2px 40px rgba(20, 51, 227, 0.651" }}
       >
         Volver
       </Button>
@@ -14,4 +14,4 @@ function BotonDetail() {
   );
 }
 
-export default BotonDetail;
+export default BotonMain;

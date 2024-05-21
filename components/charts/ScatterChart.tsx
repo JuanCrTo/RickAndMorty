@@ -18,6 +18,7 @@ const ScatterChartComponent = () => {
   }, []);
 
   const chartData = {
+    labels: characters.map((character) => character.name),
     datasets: [
       {
         label: 'Personajes',

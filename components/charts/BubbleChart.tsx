@@ -18,13 +18,14 @@ const BubbleChartComponent = () => {
   }, []);
 
   const chartData = {
+    labels: characters.map((character) => character.name),
     datasets: [
       {
         label: 'Personajes',
         data: characters.map((character) => ({
           x: character.episode.length,
           y: character.id,
-          r: character.origin.dimension === 'unknown' ? 5 : 10,
+          r: character.origin.name === 'Earth (Replacement Dimension)' ? 5 : 10,
         })),
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
@@ -33,7 +34,7 @@ const BubbleChartComponent = () => {
     ],
   };
 
-  return <Bubble data={chartData} />;
+  return <Bubble data={chartData}/>;
 };
 
 export default BubbleChartComponent;
