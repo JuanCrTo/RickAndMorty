@@ -1,8 +1,9 @@
 import { Button } from "antd";
 import React from "react";
+import { IButton } from "@/interfaces/Button.interface";
 
 
-const BotonAdelante = ({ page, setPage, maxPage = 42 }: any) => {
+const BotonAdelante: React.FC<IButton> = ({ page, setPage, maxPage = 42 }) => {
     const handleClick = () => {
         if (page < maxPage) {
           setPage(page + 1);

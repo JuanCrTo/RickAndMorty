@@ -1,7 +1,8 @@
 import { Button } from "antd";
 import React from "react";
+import { IButton } from "@/interfaces/Button.interface";
 
-function BotonAtras({ page, setPage }: any){
+const BotonAtras: React.FC<Omit<IButton, 'maxPage'>> = ({ page, setPage }) => {
     const handleClick = () => {
         if (page > 1) {
           setPage(page - 1);

@@ -1,20 +1,9 @@
 import React, { ChangeEvent } from "react";
 import { Select, Space, Input } from "antd";
+import { ISearchFilter } from "@/interfaces/SearchFilter.interface";
 
-type Props = {
-  searchTerm: string;
-  setSearchTerm: (value: string) => void;
-  filterSpecies: string;
-  setFilterSpecies: (value: string) => void;
-  filterStatus: string;
-  setFilterStatus: (value: string) => void;
-  filterGender: string;
-  setFilterGender: (value: string) => void;
-  sortOrder: string;
-  setSortOrder: (value: string) => void;
-};
 
-const SearchFilter: React.FC<Props> = ({
+const SearchFilter: React.FC<ISearchFilter> = ({
   searchTerm,
   setSearchTerm,
   filterSpecies,

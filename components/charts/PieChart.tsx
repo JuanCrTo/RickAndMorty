@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { ICharacter } from '@/interfaces/Character.interface';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PieChartComponent = () => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<ICharacter[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +18,7 @@ const PieChartComponent = () => {
     fetchData();
   }, []);
 
-  const speciesCount = characters.reduce((acc, character) => {
+  const speciesCount = characters.reduce<Record<string, number>>((acc, character) => {
     const { species } = character;
     acc[species] = (acc[species] || 0) + 1;
     return acc;

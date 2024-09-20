@@ -1,10 +1,23 @@
 /** @type {import('next').NextConfig} */
+const path = require('path'); // Agrega esta línea para importar 'path'
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [{ hostname: 'chatwoot.leapfinancial.com' }]
+    remotePatterns: [{ protocol: "https", hostname: "rickandmortyapi.com" }],
   },
-  transpilePackages: ['antd', '@ant-design', 'rc-util', 'rc-pagination', 'rc-picker', 'rc-notification', 'rc-tooltip']
-}
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
+  transpilePackages: [
+    "antd",
+    "@ant-design",
+    "rc-util",
+    "rc-pagination",
+    "rc-picker",
+    "rc-notification",
+    "rc-tooltip",
+  ],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

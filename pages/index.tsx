@@ -8,8 +8,7 @@ import BotonAtras from "@/components/buttons/BotonAtras";
 import BotonAdelante from "@/components/buttons/BotonAdelante";
 import Character from "@/components/Character";
 import BotonCharts from "@/components/buttons/BotonCharts";
-
-// import "../styles/CharacterList.scss"
+// import styles from "@/styles/characterList.module.scss";
 
 
 function CharacterList() {
@@ -46,7 +45,7 @@ function CharacterList() {
 
   useEffect(() => {
     fetchData();
-  }, [page, searchTerm, filterSpecies, filterStatus, filterGender, sortOrder]);
+  }, [page, searchTerm, filterSpecies, filterStatus, filterGender, sortOrder, fetchData]);
 
   return (
     <div>

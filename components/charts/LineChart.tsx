@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend } from 'chart.js';
+import { IEpisode } from '@/interfaces/Character.interface';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
 
 const LineChartComponent = () => {
-  const [episodes, setEpisodes] = useState([]);
+  const [episodes, setEpisodes] = useState<IEpisode[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

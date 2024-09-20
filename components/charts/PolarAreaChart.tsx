@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { PolarArea } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { ICharacter } from '@/interfaces/Character.interface';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const PolarAreaChartComponent = () => {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<ICharacter[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +18,7 @@ const PolarAreaChartComponent = () => {
     fetchData();
   }, []);
 
-  const genderCount = characters.reduce((acc, character) => {
+  const genderCount = characters.reduce<Record<string, number>>((acc, character) => {
     const { gender } = character;
     acc[gender] = (acc[gender] || 0) + 1;
     return acc;
