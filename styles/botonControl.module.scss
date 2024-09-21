@@ -1,0 +1,61 @@
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a; /* Fondo negro */
+  padding: 16px;  
+
+  .linkButton {
+    text-decoration: none; /* Asegura que no haya subrayado */
+  }
+
+  h4 {
+    color: #2453eb;
+
+    span {
+      color: white; /* Color blanco solo para el número */
+    }
+  }
+
+  .buttonRow {
+    display: flex; /* Alinea los botones en fila */
+    margin-top: 10px; /* Espacio entre el título y los botones */
+
+    button {
+      margin-left: 10px; /* Espacio entre los botones */
+      color: rgb(0, 0, 0);
+      border: none; /* Quitar borde */
+      border-radius: 4px; /* Bordes redondeados */
+      padding: 10px 20px; /* Espaciado interno */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100px; /* Ancho fijo para los botones */
+      background-color: #2453eb !important;
+
+      &:hover {
+        background-color: #2453eb !important;
+        color: rgb(0, 0, 0) !important;
+      }
+
+      &:disabled {
+        background-color: #555 !important; /* Color del botón deshabilitado */
+      }
+    }
+  }
+
+  .buttonCharts {
+    margin-top: 10px; /* Espacio entre el título y los botones */
+    color: rgb(0, 0, 0) !important;
+    border: none; /* Quitar borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px; /* Ancho fijo para el botón */
+    background-color: #2beb24 !important; /* Color del botón de gráficos */
+  }
+}

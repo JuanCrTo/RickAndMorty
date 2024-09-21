@@ -1,0 +1,42 @@
+.detailContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #1a1a1a; /* Fondo oscuro */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(0, 255, 51); /* Sombra más suave */
+  max-width: 900px;
+  margin: 0 auto;
+
+  .detailImage {
+    margin-right: 20px;
+  }
+
+  .characterDetail {
+    background-color: #2b2b2b; /* Fondo oscuro para el detalle */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgb(0, 255, 51); /* Sombra más suave */
+
+    h1 {
+      color: #2beb24; /* Color del encabezado */
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .detailText {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ffffff; /* Texto blanco */
+
+      p {
+        margin: 8px 0;
+        span {
+          font-weight: bold;
+          color: #2beb24; /* Color blanco para texto en negrita */
+        }
+      }
+    }
+  }
+}

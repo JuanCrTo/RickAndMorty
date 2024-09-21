@@ -1,0 +1,14 @@
+.container {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .linkButton {
+    margin-bottom: 20px; /* Espaciado entre el botón y el contenido */
+  }
+  

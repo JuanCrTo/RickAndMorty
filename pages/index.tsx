@@ -4,12 +4,9 @@ import { rmApi } from "./api/api";
 import Link from "next/link";
 import { Divider } from "antd";
 import SearchFilter from "@/components/SearchFilter";
-import BotonAtras from "@/components/buttons/BotonAtras";
-import BotonAdelante from "@/components/buttons/BotonAdelante";
 import Character from "@/components/Character";
-import BotonCharts from "@/components/buttons/BotonCharts";
-// import styles from "@/styles/characterList.module.scss";
-
+import BotonControl from "@/components/buttons/BotonControl";
+import styles from "@/styles/characterList.module.scss"; // Importar el nuevo archivo de estilos
 
 function CharacterList() {
   const [characters, setCharacters] = useState([]);
@@ -20,44 +17,37 @@ function CharacterList() {
   const [filterGender, setFilterGender] = useState("");
   const [sortOrder, setSortOrder] = useState("");
 
-  const fetchData = async () => {
-    const params = {
-      page: page.toString(),
-      name: searchTerm,
-      species: filterSpecies,
-      status: filterStatus,
-      gender: filterGender,
+  useEffect(() => {
+    const fetchData = async () => {
+      const params = {
+        page: page.toString(),
+        name: searchTerm,
+        species: filterSpecies,
+        status: filterStatus,
+        gender: filterGender,
+      };
+
+      const queryParams = new URLSearchParams(params).toString();
+
+      const response = await rmApi.get(`/character?${queryParams}`);
+      const sortedResults = response.data.results.sort((a: any, b: any) => {
+        if (sortOrder === "asc") {
+          return a.name.localeCompare(b.name);
+        } else if (sortOrder === "desc") {
+          return b.name.localeCompare(a.name);
+        }
+        return 0;
+      });
+      setCharacters(sortedResults);
     };
 
-    const queryParams = new URLSearchParams(params).toString();
-
-    const response = await rmApi.get(`/character?${queryParams}`);
-    const sortedResults = response.data.results.sort((a: any, b: any) => {
-      if (sortOrder === "asc") {
-        return a.name.localeCompare(b.name);
-      } else if (sortOrder === "desc") {
-        return b.name.localeCompare(a.name);
-      }
-      return 0;
-    });
-    setCharacters(sortedResults);
-  };
-
-  useEffect(() => {
     fetchData();
-  }, [page, searchTerm, filterSpecies, filterStatus, filterGender, sortOrder, fetchData]);
+  }, [page, searchTerm, filterSpecies, filterStatus, filterGender, sortOrder]);
 
   return (
-    <div>
-      <h1 className="h1">Rick and Morty</h1>
-      <Divider
-        style={{
-          borderColor: "#2453eb",
-        }}
-      ></Divider>
-      <Link href={`/charts`}>
-        <BotonCharts />
-      </Link>
+    <div className={styles.fondo}>
+      <div className={styles.titulo}><h1 className={styles.h1}>Rick and Morty</h1></div>
+      
       <SearchFilter
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -70,22 +60,22 @@ function CharacterList() {
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
       />
-      <BotonAdelante page={page} setPage={setPage} maxPage={42} />
-      <p></p>
-      <BotonAtras page={page} setPage={setPage} />
-      <div className="container">
+
+      <BotonControl page={page} setPage={setPage} maxPage={42} />
+
+      <div className={styles.container}>
         {characters.map((character: any) => {
           return (
-            <div className="character-card" key={character.id}>
-              <Link href={`/${character.id}`}>
+            <div className={styles.characterCard} key={character.id}>
+              <Link href={`/${character.id}`} className={styles.linkButton}>
                 <Character character={character} />
               </Link>
             </div>
           );
         })}
       </div>
-      <BotonAtras page={page} setPage={setPage} />
-      <BotonAdelante page={page} setPage={setPage} />
+
+      <BotonControl page={page} setPage={setPage} maxPage={42} />
     </div>
   );
 }

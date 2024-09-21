@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { Select, Space, Input } from "antd";
 import { ISearchFilter } from "@/interfaces/SearchFilter.interface";
-
+import styles from "@/styles/SearchFilter.module.scss";
 
 const SearchFilter: React.FC<ISearchFilter> = ({
   searchTerm,
@@ -19,38 +19,18 @@ const SearchFilter: React.FC<ISearchFilter> = ({
     setSearchTerm(e.target.value);
   };
 
-  const handleFilterSpecies = (value: string) => {
-    setFilterSpecies(value);
-  };
-
-  const handleFilterStatus = (value: string) => {
-    setFilterStatus(value);
-  };
-
-  const handleFilterGender = (value: string) => {
-    setFilterGender(value);
-  };
-
-  const handleSortOrder = (value: string) => {
-    setSortOrder(value);
-  };
-
   return (
-    <div className="search-filter-container">
+    <div className={styles.searchFilterContainer}>
       <Input
         placeholder="Search by name"
         value={searchTerm}
         onChange={handleSearch}
-        style={{ width: 300,
-          color: '#2453eb',
-          fontWeight: 'bold',
-         }}
       />
-      <Space wrap>
+      <Space>
         <Select
+          className={styles.selectBlue}
           value={filterSpecies}
-          onChange={handleFilterSpecies}
-          style={{ width: 120 }}
+          onChange={setFilterSpecies}
           allowClear
           options={[
             { value: "", label: "Species" },
@@ -59,9 +39,9 @@ const SearchFilter: React.FC<ISearchFilter> = ({
           ]}
         />
         <Select
+          className={styles.selectBlue}
           value={filterStatus}
-          onChange={handleFilterStatus}
-          style={{ width: 120 }}
+          onChange={setFilterStatus}
           allowClear
           options={[
             { value: "", label: "Status" },
@@ -70,9 +50,9 @@ const SearchFilter: React.FC<ISearchFilter> = ({
           ]}
         />
         <Select
+          className={styles.selectBlue}
           value={filterGender}
-          onChange={handleFilterGender}
-          style={{ width: 120 }}
+          onChange={setFilterGender}
           allowClear
           options={[
             { value: "", label: "Gender" },
@@ -81,12 +61,12 @@ const SearchFilter: React.FC<ISearchFilter> = ({
           ]}
         />
         <Select
+          className={styles.selectBlue}
           value={sortOrder}
-          onChange={handleSortOrder}
-          style={{ width: 120 }}
+          onChange={setSortOrder}
           allowClear
           options={[
-            { value: "", label: "Name" },
+            { value: "", label: "Sort Order" },
             { value: "asc", label: "Ascending" },
             { value: "desc", label: "Descending" },
           ]}

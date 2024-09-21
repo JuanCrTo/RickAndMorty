@@ -1,0 +1,65 @@
+// Variables
+$background-color: #1a1a1a;
+$text-color: #ffffff;
+$input-background: #2a2a2a;
+$input-border: #3a3a3a;
+$select-background: #2453eb;
+$hover-color: #4a4a4a;
+
+.searchFilterContainer {
+  background-color: $background-color;
+  padding: 20px;
+
+  :global(.ant-input) {
+    background-color: $input-background;
+    border-color: $input-border;
+    color: $text-color;
+
+    &::placeholder {
+      color: darken($text-color, 30%);
+    }
+
+    &:hover,
+    &:focus {
+      border-color: lighten($input-border, 10%);
+    }
+  }
+
+  :global(.ant-select) {
+    margin-right: 10px;
+    margin-top: 10px;
+
+    .ant-select-selector {
+      background-color: $input-background;
+      border-color: $input-border;
+      color: $text-color;
+    }
+
+    .ant-select-arrow {
+      color: $text-color;
+    }
+
+    &:hover .ant-select-selector {
+      border-color: lighten($input-border, 10%);
+    }
+  }
+
+  :global(.ant-select-dropdown) {
+    background-color: $input-background;
+    
+    .ant-select-item {
+      color: $text-color;
+
+      &-option-active,
+      &-option-selected {
+        background-color: $hover-color;
+      }
+    }
+  }
+}
+
+.selectBlue {
+  :global(.ant-select-selector) {
+    background-color: $select-background !important;
+  }
+}
