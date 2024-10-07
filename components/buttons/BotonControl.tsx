@@ -2,7 +2,7 @@ import { Button } from "antd";
 import React from "react";
 import { IButton } from "@/interfaces/Button.interface";
 import Link from "next/link";
-import styles from "@/styles/BotonControl.module.scss";
+import styles from "@/styles/botonControl.module.scss";
 
 const BotonControl: React.FC<IButton> = ({ page, setPage, maxPage = 42 }) => {
   const handleNextClick = () => {

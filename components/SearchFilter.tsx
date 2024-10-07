@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { Select, Space, Input } from "antd";
 import { ISearchFilter } from "@/interfaces/SearchFilter.interface";
-import styles from "@/styles/SearchFilter.module.scss";
+import styles from "@/styles/searchFilter.module.scss";
 
 const SearchFilter: React.FC<ISearchFilter> = ({
   searchTerm,
